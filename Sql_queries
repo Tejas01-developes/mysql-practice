@@ -1,0 +1,73 @@
+-- create database
+CREATE DATABASE trials;
+USE trials;
+
+
+
+
+-- create table
+CREATE TABLE IF NOT EXISTS friends1(
+id INT PRIMARY KEY NOT NULL,
+name VARCHAR(100),
+course VARCHAR(100),
+collage VARCHAR(200)
+);
+-- update table
+ALTER TABLE friends1 ADD email VARCHAR(200);
+
+
+
+-- create table2
+CREATE TABLE IF NOT EXISTS friends2(
+id INT PRIMARY KEY NOT NULL,
+name VARCHAR(100),
+course VARCHAR(100),
+collage VARCHAR(200)
+);
+
+
+
+-- insert values manually
+INSERT INTO friends2 (id, name, course, collage)
+VALUES
+(1, 'dhruv', 'BBA', 'KJIT'),
+(2, 'ravi', 'BTECH', 'MSU'),
+(3, 'lakshya', 'DS', 'SVIT');
+
+-- insert values manually
+INSERT INTO friends1 (id, name, course, collage)
+VALUES
+(1, 'jainam', 'BBA', 'XYZ College'),
+(2, 'jayraj', 'BTECH', 'LMN College'),
+(3, 'lucky', 'DS', 'ABC College');
+
+
+
+-- update inserted data
+UPDATE friends1 SET collage ='ITM' WHERE id ='3';
+
+
+
+-- to view full table data
+SELECT * FROM friends1;
+SELECT * FROM friends2;
+
+
+-- four type of joins inner join left join and right join self join
+
+
+
+--     INNER JOIN  give both table common values 
+ SELECT * FROM friends1 INNER JOIN friends2  ON friends1.id = friends2.id
+ 
+--  Left join  give left table full and right table common data
+ SELECT * FROM friends1 LEFT JOIN friends2 ON friends1.collage = friends2.collage
+ 
+--   right join  give right table full and left table common data
+ SELECT * FROM friends1 RIGHT JOIN friends2 on friends1.collage = friends2.collage
+ 
+ 
+--   self join give the same table on both side left and right side 
+ SELECT * FROM friends1 AS a JOIN friends1 AS b ON a.name = b.name
+ 
+ 
