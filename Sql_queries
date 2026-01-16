@@ -25,7 +25,8 @@ course VARCHAR(100),
 collage VARCHAR(200)
 );
 
-
+-- adding indexing on friends name
+CREATE INDEX idx_name ON friends2(name);
 
 -- insert values manually
 INSERT INTO friends2 (id, name, course, collage)
