@@ -72,3 +72,35 @@ SELECT * FROM friends2;
  SELECT * FROM friends1 AS a JOIN friends1 AS b ON a.name = b.name
  
  
+-- understanding of the undo redo logs and transaction and ACID CONCEPTS
+
+
+-- commit is the to make the value change in the data 
+START TRANSACTION;
+UPDATE friends1 SET email='j@gmail.com' WHERE id = 1;
+COMMIT;
+
+
+-- rollback is to undo the changes made in the data and show the old data and to rollback full process its rule is either succed fully or faile fully
+START TRANSACTION;
+UPDATE friends2 SET email='d@gmail.com' WHERE id = 1;
+ROLLBACK;
+
+-- when we run transaction line then after the update like then it make change in data but after that the commit is there or rollback that is main for data transaction is commit data is changed and if rollback data is not changed and undo plays role
+START TRANSACTION;
+UPDATE friends2 SET email='r@gmail.com' WHERE id = 2;
+COMMIT;
+
+-- Atomicity:-
+-- Atomicity ensures that a transaction is treated as a single unit of work where either all operations succeed or none do, and it is enforced by the database engine using transactions.
+
+-- Consistency:-
+-- Consistency means a transaction takes the database from one valid state to another valid state.
+
+
+-- Isolation:-
+-- Isolation ensures that multiple transactions running at the same time do not interfere with each other.
+
+
+-- Durability:-
+-- Durability ensures that once a transaction is committed, the changes are permanent, even if the system crashes immediately after.
